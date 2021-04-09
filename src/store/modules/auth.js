@@ -1,33 +1,30 @@
-<template>
-  <div>
-    <h1>{{ greetings }}</h1>
-  </div>
-</template>
-
-<script>
-// @ is an alias to /src
 import axios from 'axios'
 
 export default {
-  name: 'Home',
-  data () {
+  state () {
     return {
       greetings: 'Loading...'
     }
   },
-  methods: {
-    getHelloWorld () {
+  mutations: {
+    greetMutation (state, payload) {
+      state.greetings = payload.message
+    }
+  },
+  actions: {
+    greetAction (context) {
       axios.get('https://sandbox.api.service.nhs.uk/hello-world/hello/world')
         .then(res => {
-          this.greetings = res.data.message
+          context.commit('greetMutation', res.data)
         })
         .catch(err => {
           console.error(err)
         })
     }
   },
-  created () {
-    this.getHelloWorld()
+  getters: {
+    greet (state) {
+      return state.greetings
+    }
   }
 }
-</script>
