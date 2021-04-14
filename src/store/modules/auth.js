@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { environments } from '@/environments/environments.js'
 
 export default {
   state () {
@@ -13,7 +14,7 @@ export default {
   },
   actions: {
     greetAction (context) {
-      axios.get('https://sandbox.api.service.nhs.uk/hello-world/hello/world')
+      axios.get(environments.apiUrl.helloWorld)
         .then(res => {
           context.commit('greetMutation', res.data)
         })

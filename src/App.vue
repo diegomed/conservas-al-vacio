@@ -1,15 +1,20 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/shop">Shop</router-link>
-  </div>
   <router-view/>
 </template>
 
 <style lang="scss">
 @import "tachyons";
 
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
 #app {
+  height: 100%;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
