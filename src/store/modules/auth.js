@@ -9,7 +9,7 @@ export default {
   },
   mutations: {
     greetMutation (state, payload) {
-      state.greetings = payload.message
+      state.greetings = payload
     }
   },
   actions: {

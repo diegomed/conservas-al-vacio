@@ -1,5 +1,5 @@
 <template>
-    <div class="w-20 h-75 m-2-5 br3 mw250 shadow-5 overflow-hidden bg-white-90">
+    <div class="w-20 h360 m-2-5 br3 mw250 shadow-5 overflow-hidden bg-white-90">
         <div class="w-100 h-50">
             <img :src="product.img" alt="Product image" class="img br3 br--top">
         </div>
@@ -34,5 +34,8 @@ export default {
     }
     .mw250 {
         min-width: 250px;
+    }
+    .h360 {
+        height: 360px;
     }
 </style>
