@@ -11,4 +11,16 @@ describe('ProductCard.vue', () => {
     })
     expect(wrapper.exists()).to.be.equal(true)
   })
+
+  it('emits a details handler event', () => {
+    const wrapper = shallowMount(ProductCard, {
+      props: {
+        product: { id: 1, name: 'Pepinos', img: 'http://innatia.info/images/galeria/conservas-2.jpg', price: 50 }
+      }
+    })
+
+    wrapper.find('button').trigger('click')
+
+    expect(wrapper.emitted()).to.have.property('handle-details')
+  })
 })

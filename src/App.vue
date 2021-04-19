@@ -34,4 +34,30 @@ body {
     }
   }
 }
+
+.bg-conservas {
+  background-color: #f6ecd7;
+}
+
+.bg-conservas-strong {
+  background-color: #b3876c;
+}
+
+.bg-conservas-light {
+  background-color: #bb944c;
+}
+
+.bg-conservas-waterfall {
+  background-color: #fff6ec;
+}
+
+.text-conservas {
+  color: #81461a;
+  font-family: 'Open Sans';
+}
+
+.text-conservas-header {
+  color: #bb944c;
+  font-family: 'Yellowtail';
+}
 </style>
