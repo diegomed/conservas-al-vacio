@@ -7,6 +7,7 @@ import Register from '../views/home/Register'
 import Shop from '../views/shop/Index'
 import Catalog from '../views/shop/Catalog'
 import ProductDetails from '../views/shop/ProductDetails'
+import Cart from '../views/shop/Cart'
 
 import Panel from '../views/admin/Index'
 import Products from '../views/admin/Products'
@@ -17,7 +18,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    redirect: '/login',
+    redirect: '/shop',
     component: Home,
     children: [
       {
@@ -49,6 +50,11 @@ const routes = [
         path: 'catalog/:id',
         name: 'Details',
         component: ProductDetails
+      },
+      {
+        path: 'cart',
+        name: 'Cart',
+        component: Cart
       }
     ]
     // route level code-splitting

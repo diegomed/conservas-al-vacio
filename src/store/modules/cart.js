@@ -6,7 +6,12 @@ export default {
   },
   mutations: {
     addProduct (state, payload) {
-      state.cart = [...state.cart, payload]
+      const repeatedItemIndex = state.cart.findIndex(item => item.id === payload.id)
+      if (repeatedItemIndex !== -1) {
+        state.cart[repeatedItemIndex].quantity++
+      } else {
+        state.cart = [...state.cart, payload]
+      }
     }
   },
   actions: {
@@ -17,6 +22,13 @@ export default {
   getters: {
     cart (state) {
       return state.cart
+    },
+    totalCartItems (state, getters) {
+      if (getters.cart.length) {
+        return getters.cart.reduce((total, value) => {
+          return { quantity: total.quantity + value.quantity }
+        }).quantity
+      }
     }
   }
 }

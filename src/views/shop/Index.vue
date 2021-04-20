@@ -1,6 +1,6 @@
 <template>
   <Header/>
-  <div class="h-100 pt5">
+  <div class="h-100 pt5 bg-conservas overflow-auto">
     <Spinner v-if="this.$store.getters.isLoading"/>
     <router-view/>
   </div>

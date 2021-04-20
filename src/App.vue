@@ -60,4 +60,8 @@ body {
   color: #bb944c;
   font-family: 'Yellowtail';
 }
+
+.h-fit-content {
+  height: fit-content;
+}
 </style>
