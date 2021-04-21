@@ -1,5 +1,5 @@
 <template>
-  <div class="ml5 h3">
+  <div class="absolute top-5 left-5">
     <GoBackArrow/>
   </div>
   <section class="h-100 w-100 flex flex-row bg-conservas">

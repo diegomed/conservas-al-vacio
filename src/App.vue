@@ -64,4 +64,12 @@ body {
 .h-fit-content {
   height: fit-content;
 }
+
+.top-5 {
+  top: 5rem;
+}
+
+.left-5 {
+  left: 5rem;
+}
 </style>

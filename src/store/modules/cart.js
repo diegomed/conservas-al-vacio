@@ -26,8 +26,15 @@ export default {
     totalCartItems (state, getters) {
       if (getters.cart.length) {
         return getters.cart.reduce((total, value) => {
-          return { quantity: total.quantity + value.quantity }
-        }).quantity
+          return total + value.quantity
+        }, 0)
+      }
+    },
+    totalPrice (state, getters) {
+      if (getters.cart.length) {
+        return getters.cart.reduce((total, value) => {
+          return total + value.price * value.quantity
+        }, 0)
       }
     }
   }
