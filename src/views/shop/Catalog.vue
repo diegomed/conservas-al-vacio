@@ -1,6 +1,8 @@
 <template>
-  <section class="h-100 flex flex-row flex-wrap pv3 overflow-auto bg-conservas">
-    <ProductCard v-for="(product, index) in products" :key="index" :product="product" @handle-details="goToDetailsHandler" />
+  <section class="flex justify-center w-100">
+    <div class="h-100 flex flex-row flex-wrap pv3 overflow-auto bg-conservas catalog-width">
+      <ProductCard v-for="(product, index) in products" :key="index" :product="product" @handle-details="goToDetailsHandler" @handle-add-button="addToCartHandler" />
+    </div>
   </section>
 </template>
 
@@ -23,6 +25,9 @@ export default {
   methods: {
     goToDetailsHandler (id) {
       this.$router.push('/shop/catalog/' + id)
+    },
+    addToCartHandler (product) {
+      this.$store.dispatch('addToCart', { ...product, quantity: 1 })
     }
   },
   created () {
@@ -35,3 +40,26 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  @media screen and (max-width: 1500px) and (min-width: 1250px) {
+    .catalog-width {
+        max-width: 1250px;
+    }
+  }
+  @media screen and (max-width: 1249px) and (min-width: 900px) {
+    .catalog-width {
+        max-width: 900px;
+    }
+  }
+  @media screen and (max-width: 899px) and (min-width: 560px) {
+    .catalog-width {
+        max-width: 560px;
+    }
+  }
+  @media screen and (max-width: 559px) {
+    .catalog-width {
+        max-width: 270px;
+    }
+  }
+</style>

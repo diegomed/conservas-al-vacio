@@ -3,11 +3,12 @@
         <div class="ma3 br3 w4">
             <img :src="product.img" alt="Foto del producto">
         </div>
-        <div class="flex items-center justify-between w-70">
-            <p class="f2 b ma3 text-conservas">{{ product.nameame }}</p>
+        <div class="flex flex-wrap flex-row items-center justify-between">
+            <p class="f2 f2-ns f2-m f2-l b ma3 text-conservas">{{ product.nameame }}</p>
             <p class="f1 ma3 text-conservas-header">${{ product.price }}</p>
         </div>
-        <p class="f3 shadow-5 absolute top--1 right--1 ma0 br-100 white bg-light-blue w2 h2 flex items-center justify-center">{{ product.quantity }}</p>
+        <p class="f3 shadow-5 absolute top--1 left--1 ma0 br-100 white bg-light-blue w2 h2 flex items-center justify-center">{{ product.quantity }}</p>
+        <p @click="closeButtonHandler" class="f3 shadow-5 absolute top--1 right--1 ma0 br-100 white bg-silver pointer w2 h2 flex items-center justify-center">X</p>
     </div>
 </template>
 
@@ -17,6 +18,11 @@ export default {
     product: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    closeButtonHandler () {
+      this.$emit('on-close', this.product.id)
     }
   }
 }

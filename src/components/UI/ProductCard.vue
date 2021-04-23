@@ -1,5 +1,5 @@
 <template>
-    <div class="w-20 h360 m-2-5 br3 mw250 shadow-5 overflow-hidden bg-white-90">
+    <div class="h360 m-2-5 br3 w250 shadow-5 relative overflow-hidden bg-white-90">
         <div class="w-100 h-50">
             <img :src="product.img" alt="Product image" class="img br3 br--top">
         </div>
@@ -14,6 +14,7 @@
                 </div>
             </div>
         </div>
+        <p @click="handleAddButton" class="f3 shadow-5 absolute top-1 right-1 ma0 br-100 white bg-light-blue pointer w2 h2 flex items-center justify-center">+</p>
     </div>
 </template>
 
@@ -28,6 +29,9 @@ export default {
   methods: {
     handleDetails () {
       this.$emit('handle-details', this.product.id)
+    },
+    handleAddButton () {
+      this.$emit('handle-add-button', this.product)
     }
   }
 }
@@ -37,8 +41,8 @@ export default {
     .m-2-5 {
         margin: 2.5%;
     }
-    .mw250 {
-        min-width: 250px;
+    .w250 {
+        width: 250px;
     }
     .h360 {
         height: 360px;

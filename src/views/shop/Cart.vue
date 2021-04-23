@@ -4,7 +4,7 @@
           <GoBackArrow/>
         </div>
         <template v-if="cart.length">
-          <CartItem v-for="(item, index) in cart" :key="index" :product="item"/>
+          <CartItem v-for="(item, index) in cart" :key="index" :product="item" @on-close="deleteCartItem"/>
         </template>
         <div v-else>
           <h1 class="silver">No hay elementos añadidos al carrito.</h1>
@@ -27,6 +27,11 @@ export default {
   components: {
     CartItem,
     GoBackArrow
+  },
+  methods: {
+    deleteCartItem (id) {
+      this.$store.dispatch('deleteFromCart', id)
+    }
   },
   computed: {
     ...mapGetters(['cart'])

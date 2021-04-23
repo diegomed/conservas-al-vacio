@@ -12,11 +12,22 @@ export default {
       } else {
         state.cart = [...state.cart, payload]
       }
+    },
+    deleteProduct (state, payload) {
+      const indexToRemove = state.cart.findIndex(item => item.id === payload)
+      if (state.cart[indexToRemove].quantity === 1) {
+        state.cart = [...state.cart.slice(0, indexToRemove), ...state.cart.slice(indexToRemove + 1)]
+      } else {
+        state.cart[indexToRemove].quantity--
+      }
     }
   },
   actions: {
     addToCart (context, payload) {
       context.commit('addProduct', payload)
+    },
+    deleteFromCart (context, payload) {
+      context.commit('deleteProduct', payload)
     }
   },
   getters: {
