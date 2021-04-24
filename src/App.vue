@@ -4,6 +4,8 @@
 
 <style lang="scss">
 @import "tachyons";
+@import url('//fonts.googleapis.com/css?family=Open+Sans');
+@import url('//fonts.googleapis.com/css?family=Yellowtail');
 
 html {
   height: 100%;

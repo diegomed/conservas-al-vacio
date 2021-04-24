@@ -7,19 +7,26 @@
             <h1 class="w-100 h-50 pv3 ma0 text-conservas">{{ product.nameame }}</h1>
             <div class="w-100 h-50 flex justify-around">
                 <div class="w-50 h-100 flex items-center justify-center">
-                    <p class="ma0 f1 text-conservas-header">${{ product.price }}</p>
+                  <p class="ma0 f1 text-conservas-header">${{ product.price }}</p>
                 </div>
                 <div class="w-50 h-100 flex items-center justify-center">
-                    <button @click="handleDetails" class="h2 b--none br3 shadow-5 shadow-hover white-90 bg-blue">Ver detalles</button>
+                  <Button @handle-click="handleDetails">Ver Detalles</Button>
                 </div>
             </div>
         </div>
-        <p @click="handleAddButton" class="f3 shadow-5 absolute top-1 right-1 ma0 br-100 white bg-light-blue pointer w2 h2 flex items-center justify-center">+</p>
+        <Bubble @handle-click="handleAddButton" color="primary" class="absolute top-1 right-1">+</Bubble>
     </div>
 </template>
 
 <script>
+import Button from './Button'
+import Bubble from './Bubble'
+
 export default {
+  components: {
+    Button,
+    Bubble
+  },
   props: {
     product: {
       type: Object,

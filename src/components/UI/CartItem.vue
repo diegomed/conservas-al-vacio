@@ -7,13 +7,18 @@
             <p class="f2 f2-ns f2-m f2-l b ma3 text-conservas">{{ product.nameame }}</p>
             <p class="f1 ma3 text-conservas-header">${{ product.price }}</p>
         </div>
-        <p class="f3 shadow-5 absolute top--1 left--1 ma0 br-100 white bg-light-blue w2 h2 flex items-center justify-center">{{ product.quantity }}</p>
-        <p @click="closeButtonHandler" class="f3 shadow-5 absolute top--1 right--1 ma0 br-100 white bg-silver pointer w2 h2 flex items-center justify-center">X</p>
+        <Bubble class="absolute top--1 left--1" color="primary">{{ product.quantity }}</Bubble>
+        <Bubble @handle-click="closeButtonHandler" class="absolute top--1 right--1">X</Bubble>
     </div>
 </template>
 
 <script>
+import Bubble from './Bubble'
+
 export default {
+  components: {
+    Bubble
+  },
   props: {
     product: {
       type: Object,

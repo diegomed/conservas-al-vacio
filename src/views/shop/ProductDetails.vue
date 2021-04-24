@@ -12,8 +12,8 @@
           <h1 class="text-conservas">{{ product.nameame }}</h1>
           <h1 class="f1 text-conservas-header">${{ product.price }}</h1>
           <div class="flex flex-wrap items-center justify-center">
-            <button @click="addToCart" class="h2 ma2 w-90 w-90-ns w-90-m w-30-l self-center b--none br3 shadow-5 shadow-hover white-90 bg-blue">Añadir al carrito</button>
-            <button @click="$router.push('/shop/cart')" class="h2 ma2 w-90 w-90-ns w-90-m w-30-l self-center b--none br3 shadow-5 shadow-hover white-90 bg-blue">Ver carrito</button>
+            <Button @handle-click="addToCart" class="ma2 w-90 w-90-ns w-90-m w-30-l self-center">Añadir al carrito</Button>
+            <Button @handle-click="$router.push('/shop/cart')" class="ma2 w-90 w-90-ns w-90-m w-30-l self-center">Ver carrito</Button>
           </div>
       </div>
   </section>
@@ -22,10 +22,12 @@
 <script>
 import shopMixin from '../../mixins/shop'
 import GoBackArrow from '../../components/UI/GoBackArrow'
+import Button from '../../components/UI/Button'
 
 export default {
   components: {
-    GoBackArrow
+    GoBackArrow,
+    Button
   },
   mixins: [
     shopMixin
